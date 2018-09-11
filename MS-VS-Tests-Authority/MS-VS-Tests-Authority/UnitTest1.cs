@@ -1,13 +1,8 @@
 ﻿using System;
-using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-//using OpenQA.Selenium.Firefox;
-using OpenQA.Selenium.Support.UI;
 
 
 namespace SeleniumTests
@@ -23,23 +18,12 @@ namespace SeleniumTests
         [SetUp]
         public void SetupTest()
         {
-
-          driver = new ChromeDriver();
-          baseURL = "https://local.authoritycrm.com/";
-
-            // System.setProperty("webdriver.chrome.driver", @"C:\Program Files (x86)\Google\Chrome\Application\chromedriver.exe");
-
-            /*
-               FirefoxOptions options = new FirefoxOptions();
-               options.BrowserExecutableLocation = @"d:\Program Files\Mozilla Firefox\firefox.exe";
-               options.UseLegacyImplementation = true;
-               driver = new FirefoxDriver(options);
-               baseURL = "https://local.authoritycrm.com/";
-               verificationErrors = new StringBuilder(); */
-
+           
+            driver = new ChromeDriver(@"C:\Windows\SysWOW64");
+            baseURL = "https://local.authoritycrm.com/";
         }
 
-     
+
 
         [Test]
         public void TheUntitledTest()
@@ -66,10 +50,8 @@ namespace SeleniumTests
             {
                 // Ignore errors if unable to close the browser
             }
-          Assert.AreEqual("", verificationErrors.ToString());
+            //    Assert.AreEqual("", verificationErrors.ToString());
         }
-
-
 
         private bool IsElementPresent(By by)
         {
