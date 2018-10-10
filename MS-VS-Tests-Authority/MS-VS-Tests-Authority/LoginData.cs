@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WebAuthorityTests
 {
-    class LoginData
+   public class LoginData
     {
         private string username;
         private string password;

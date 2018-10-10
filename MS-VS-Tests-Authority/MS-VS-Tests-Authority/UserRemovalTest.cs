@@ -9,37 +9,9 @@ using OpenQA.Selenium.Support.UI;
 namespace WebAuthorityTests
 {
     [TestFixture]
-    public class UserRemovalTests
+    public class UserRemovalTests : TestBase
     {
-        private IWebDriver driver;
-        private StringBuilder verificationErrors;
-        private string baseURL;
-        private bool acceptNextAlert = true;
-
-        [SetUp]
-        public void SetupTest()
-        {
-            driver = new ChromeDriver(@"C:\Windows\SysWOW64");
-            baseURL = "https://demo.authoritycrm.com/";
-            verificationErrors = new StringBuilder();
-            driver.Manage().Window.Maximize();
-
-        }
-
-        [TearDown]
-        public void TeardownTest()
-        {
-            try
-            {
-                driver.Quit();
-            }
-            catch (Exception)
-            {
-                // Ignore errors if unable to close the browser
-            }
-            Assert.AreEqual("", verificationErrors.ToString());
-        }
-
+        
         [Test]
         public void UserRemovalTest()
         {
@@ -59,7 +31,7 @@ namespace WebAuthorityTests
         private void RemoveLastUserInTheList()
         {
             
-            driver.FindElement(By.Id("1122_deleteLink")).Click();
+            driver.FindElement(By.Id("1167_deleteLink")).Click();
             DriverAlert();
         }
 
@@ -71,20 +43,9 @@ namespace WebAuthorityTests
             driver.FindElement(By.Id("UsersMainMenu")).Click();
         }
 
-        private void Login(LoginData account)
-        {
-            driver.FindElement(By.Id("ctl00_BodyPlaceholder_LoginLayoutLoader_ctl00_ContentLoader_ctl00_UserName")).Clear();
-            driver.FindElement(By.Id("ctl00_BodyPlaceholder_LoginLayoutLoader_ctl00_ContentLoader_ctl00_UserName")).SendKeys(account.Username);
-            driver.FindElement(By.Id("ctl00_BodyPlaceholder_LoginLayoutLoader_ctl00_ContentLoader_ctl00_Password")).Clear();
-            driver.FindElement(By.Id("ctl00_BodyPlaceholder_LoginLayoutLoader_ctl00_ContentLoader_ctl00_Password")).SendKeys(account.Password);
-            driver.FindElement(By.Id("ctl00_BodyPlaceholder_LoginLayoutLoader_ctl00_ContentLoader_ctl00_LoginButton")).Click();
-        }
+       
 
-        private void OpenLoginPage()
-        {
-            driver.Navigate().GoToUrl(baseURL + "test/default.aspx?subj=doors/login&returnUrl=%2ftest%2f");
-        }
-
+      
         public void WaitUntilSpinnerVisible()
         {
             ICollection<IWebElement> Collection;
@@ -97,58 +58,7 @@ namespace WebAuthorityTests
 
         public void DriverAlert()
         {
-           // driver.FindElement(By.ClassName("btn btn_danger")).Click();
-            driver.FindElement(By.XPath("//button[@class='btn btn_danger']")).Click();
-
-        
-        }
-
-        private bool IsElementPresent(By by)
-        {
-            try
-            {
-                driver.FindElement(by);
-                return true;
-            }
-            catch (NoSuchElementException)
-            {
-                return false;
-            }
-        }
-
-        private bool IsAlertPresent()
-        {
-            try
-            {
-                driver.SwitchTo().Alert();
-                return true;
-            }
-            catch (NoAlertPresentException)
-            {
-                return false;
-            }
-        }
-
-        private string CloseAlertAndGetItsText()
-        {
-            try
-            {
-                IAlert alert = driver.SwitchTo().Alert();
-                string alertText = alert.Text;
-                if (acceptNextAlert)
-                {
-                    alert.Accept();
-                }
-                else
-                {
-                    alert.Dismiss();
-                }
-                return alertText;
-            }
-            finally
-            {
-                acceptNextAlert = true;
-            }
+           driver.FindElement(By.CssSelector(".btn.btn-danger")).Click();
         }
     }
 }
