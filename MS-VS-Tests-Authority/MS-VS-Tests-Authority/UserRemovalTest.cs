@@ -97,7 +97,9 @@ namespace WebAuthorityTests
 
         public void DriverAlert()
         {
-            driver.FindElement(By.CssSelector("alert alert_danger")).Click();
+           // driver.FindElement(By.ClassName("btn btn_danger")).Click();
+            driver.FindElement(By.XPath("//button[@class='btn btn_danger']")).Click();
+
         
         }
 
