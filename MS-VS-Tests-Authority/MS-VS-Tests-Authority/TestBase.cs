@@ -53,6 +53,7 @@ namespace WebAuthorityTests
             driver.FindElement(By.Id("ctl00_BodyPlaceholder_LoginLayoutLoader_ctl00_ContentLoader_ctl00_LoginButton")).Click();
         }
         public void InitLogOut()
+
         {
             driver.FindElement(By.Id("AndrewLuchkovMainMenu")).Click();
             driver.FindElement(By.Id("LogoutMainMenu")).Click();
@@ -101,7 +102,7 @@ namespace WebAuthorityTests
 
         public IWebElement WaitUntilElementIsFound(string name)
         {
-            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(100));
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
             IWebElement myDynamicElement = wait.Until<IWebElement>(d => d.FindElement(By.Id(name)));
             return myDynamicElement;
         }
@@ -113,12 +114,11 @@ namespace WebAuthorityTests
 
         public void RemoveLastUserInTheList()
         {
-            driver.FindElement(By.Id("1177_deleteLink")).Click();
-            DriverAlert();
-        }
-        public void DriverAlert()
-        {
-            driver.FindElement(By.CssSelector(".btn.btn-danger")).Click();
+            driver.FindElement(By.Id("1180_deleteLink")).Click();
+            WaitUntilElementIsFound(".btn.btn-danger").Click();
+           // driver.FindElement(By.CssSelector(".btn.btn-danger")).Click();
+            IWebElement dialog = driver.FindElement(By.CssSelector(".modal-dialog"));
+            dialog.FindElement(By.CssSelector(".btn.btn-default")).Click();
         }
     }
 }
