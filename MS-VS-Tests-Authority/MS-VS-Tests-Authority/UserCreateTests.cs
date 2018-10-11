@@ -15,11 +15,11 @@ namespace WebAuthorityTests
         public void UserCreationTest()
         {
             OpenLoginPage();
-            Login(new LoginData("admin", "gbd4fycr0t"));
+            Login(new LoginData("Andrew", "Lass1979"));
             GoToUserList();
             WaitUntilSpinnerVisible();
             InitNewUserCreation();
-            UserDetails user = new UserDetails("Alima");
+            UserDetails user = new UserDetails("Anima");
             user.Password = "12345";
             user.Passwordconfirm = "12345";
             user.Firstname = "Limon";

@@ -54,7 +54,7 @@ namespace WebAuthorityTests
         }
         public void InitLogOut()
         {
-            driver.FindElement(By.Id("AdministratorMainMenu")).Click();
+            driver.FindElement(By.Id("AndrewLuchkovMainMenu")).Click();
             driver.FindElement(By.Id("LogoutMainMenu")).Click();
         }
 
@@ -113,7 +113,7 @@ namespace WebAuthorityTests
 
         public void RemoveLastUserInTheList()
         {
-            driver.FindElement(By.Id("1167_deleteLink")).Click();
+            driver.FindElement(By.Id("1177_deleteLink")).Click();
             DriverAlert();
         }
         public void DriverAlert()

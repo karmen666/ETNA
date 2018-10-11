@@ -13,7 +13,7 @@ namespace WebAuthorityTests
         public void UserRemovalTest()
         {
             OpenLoginPage();
-            Login(new LoginData("admin", "gbd4fycr0t"));
+            Login(new LoginData("Andrew", "Lass1979"));
             GoToUserList();
             ShowAllUsers();
             WaitUntilSpinnerVisible();
