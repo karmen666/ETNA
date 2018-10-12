@@ -12,13 +12,13 @@ namespace WebAuthorityTests
         [Test]
         public void UserRemovalTest()
         {
-            OpenLoginPage();
-            Login(new LoginData("Andrew", "Lass1979"));
-            GoToUserList();
-            ShowAllUsers();
-            WaitUntilSpinnerVisible();
-            RemoveLastUserInTheList();
-            InitLogOut();
+            navigator.OpenLoginPage();
+            loginHelper.Login(new LoginData("Andrew", "Lass1979"));
+            navigator.GoToUserList();
+            userHelper.ShowAllUsers();
+            userHelper.WaitUntilSpinnerVisible();
+            userHelper.RemoveLastUserInTheList();
+            loginHelper.InitLogOut();
         }
     }
 }

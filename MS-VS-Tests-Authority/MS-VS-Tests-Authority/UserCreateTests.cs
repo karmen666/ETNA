@@ -14,25 +14,22 @@ namespace WebAuthorityTests
         [Test]
         public void UserCreationTest()
         {
-            OpenLoginPage();
-            Login(new LoginData("Andrew", "Lass1979"));
-            GoToUserList();
-            WaitUntilSpinnerVisible();
-            InitNewUserCreation();
+            navigator.OpenLoginPage();
+            loginHelper.Login(new LoginData("Andrew", "Lass1979"));
+            navigator.GoToUserList();
+            userHelper.WaitUntilSpinnerVisible();
+            userHelper.InitNewUserCreation();
             UserDetails user = new UserDetails("Anima");
             user.Password = "12345";
             user.Passwordconfirm = "12345";
             user.Firstname = "Limon";
             user.Lastname = "Limonych";
             user.Email = "limon@lime.com";
-            FillNewUserForm(user);
-            SubmitUserCreation();
-            WaitUntilSpinnerVisible();
+            userHelper.FillNewUserForm(user);
+            userHelper.SubmitUserCreation();
+            userHelper.WaitUntilSpinnerVisible();
             //WaitUntilElementIsFound("AdministratorMainMenu");
-            InitLogOut();
+            loginHelper.InitLogOut();
         }
-
-       
-
     }
 }
