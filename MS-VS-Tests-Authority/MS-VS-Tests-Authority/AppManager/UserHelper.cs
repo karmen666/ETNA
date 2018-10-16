@@ -9,15 +9,12 @@ using OpenQA.Selenium.Support.UI;
 
 namespace WebAuthorityTests
 {
-    public class UserHelper
+    public class UserHelper: HelperBase
     {
-        private IWebDriver driver;
 
-        public UserHelper(IWebDriver driver)
+        public UserHelper(IWebDriver driver): base (driver)
         {
-            this.driver = driver;
         }
-
 
 
         public void SubmitUserCreation()
@@ -55,7 +52,6 @@ namespace WebAuthorityTests
             driver.FindElement(By.Id("NewBtn")).Click();
         }
 
-
         public IWebElement WaitUntilElementIsFound(string name)
         {
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
@@ -76,6 +72,5 @@ namespace WebAuthorityTests
             IWebElement dialog = driver.FindElement(By.CssSelector(".modal-dialog"));
             dialog.FindElement(By.CssSelector(".btn.btn-default")).Click();
         }
-
     }
 }

@@ -3,40 +3,32 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
 
-
 namespace WebAuthorityTests
 {
-    public class TestBase
+    public class ApplicationManager
     {
         protected IWebDriver driver;
-     //   private StringBuilder verificationErrors;
         protected string baseURL;
 
         protected LoginLogOutHelper loginHelper;
         protected NavigationHelper navigator;
         protected UserHelper userHelper;
 
-
-        [SetUp]
-        public void SetupTest()
+        public ApplicationManager()
         {
-            driver = new ChromeDriver(@"C:\Windows\SysWOW64");
-            baseURL = "https://demo.authoritycrm.com/";
-            driver.Manage().Window.Maximize();
-
             loginHelper = new LoginLogOutHelper(driver);
-            navigator = new NavigationHelper(driver,baseURL);
+            navigator = new NavigationHelper(driver, baseURL);
             userHelper = new UserHelper(driver);
         }
 
-        [TearDown]
-        public void TeardownTest()
+
+        public void Stop()
         {
+
             try
             {
                 driver.Quit();
@@ -45,10 +37,31 @@ namespace WebAuthorityTests
             {
                 // Ignore errors if unable to close the browser
             }
-          //   Assert.AreEqual("", verificationErrors.ToString());
         }
 
-      
-        
+        public LoginLogOutHelper Auth
+        {
+            get
+            {
+                return loginHelper;
+            }
+        }
+
+        public NavigationHelper Navigator
+        {
+            get
+            {
+                return navigator;
+            }
+        }
+
+        public UserHelper User
+        {
+            get
+            {
+                return userHelper;
+            }
+        }
+
     }
 }

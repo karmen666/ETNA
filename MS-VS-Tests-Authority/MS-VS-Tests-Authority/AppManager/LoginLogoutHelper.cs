@@ -10,13 +10,11 @@ using OpenQA.Selenium.Support.UI;
 
 namespace WebAuthorityTests
 {
-    public class LoginLogOutHelper
+    public class LoginLogOutHelper: HelperBase
     {
-        private IWebDriver driver;
 
-        public LoginLogOutHelper(IWebDriver driver)
+        public LoginLogOutHelper(IWebDriver driver): base(driver)
         {
-            this.driver = driver;
         }
 
         public  void Login(LoginData account)
