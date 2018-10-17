@@ -14,10 +14,11 @@ namespace WebAuthorityTests
         private string baseURL;
 
 
-        public NavigationHelper(IWebDriver driver, string baseURL): base (driver)
+        public NavigationHelper(ApplicationManager manager, string baseURL): base (manager)
         {
             this.baseURL = baseURL;
         }
+
         public void OpenLoginPage()
         {
             driver.Navigate().GoToUrl(baseURL + "test/default.aspx?subj=doors/login&returnUrl=%2ftest%2f");

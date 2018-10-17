@@ -20,9 +20,21 @@ namespace WebAuthorityTests
 
         public ApplicationManager()
         {
-            loginHelper = new LoginLogOutHelper(driver);
-            navigator = new NavigationHelper(driver, baseURL);
-            userHelper = new UserHelper(driver);
+            driver = new ChromeDriver(@"C:\Windows\SysWOW64");
+            baseURL = "https://demo.authoritycrm.com/";
+            driver.Manage().Window.Maximize();
+
+            loginHelper = new LoginLogOutHelper(this);
+            navigator = new NavigationHelper(this, baseURL);
+            userHelper = new UserHelper(this);
+        }
+
+        public IWebDriver Driver
+        {
+            get
+            {
+                return driver;
+            }
         }
 
 

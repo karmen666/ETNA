@@ -17,6 +17,8 @@ namespace WebAuthorityTests
         public void SetupTest()
         {
             app = new ApplicationManager();
+            app.Navigator.OpenLoginPage();
+            app.Auth.Login(new LoginData("Andrew", "Lass1979"));
         }
 
         [TearDown]

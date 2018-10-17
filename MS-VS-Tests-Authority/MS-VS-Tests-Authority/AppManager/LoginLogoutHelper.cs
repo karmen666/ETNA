@@ -13,7 +13,7 @@ namespace WebAuthorityTests
     public class LoginLogOutHelper: HelperBase
     {
 
-        public LoginLogOutHelper(IWebDriver driver): base(driver)
+        public LoginLogOutHelper(ApplicationManager manager): base(manager)
         {
         }
 
