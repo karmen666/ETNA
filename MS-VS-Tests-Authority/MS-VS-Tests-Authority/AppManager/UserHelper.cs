@@ -49,8 +49,8 @@ namespace WebAuthorityTests
 
         public IWebElement WaitUntilElementIsFound(string name)
         {
-            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
-            IWebElement myDynamicElement = wait.Until<IWebElement>(d => d.FindElement(By.Id(name)));
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(1));
+            IWebElement myDynamicElement = wait.Until<IWebElement>(d => d.FindElement(By.CssSelector(name)));
             return myDynamicElement;
         }
         public UserHelper FillNewUserForm(UserDetails user)
@@ -84,9 +84,9 @@ namespace WebAuthorityTests
 
         public UserHelper RemoveLastUserInTheList()
         {
-            driver.FindElement(By.Id("1180_deleteLink")).Click();
-            WaitUntilElementIsFound(".btn.btn-danger").Click();
-            // driver.FindElement(By.CssSelector(".btn.btn-danger")).Click();
+            driver.FindElement(By.Id("1192_deleteLink")).Click();
+            WaitUntilElementIsFound(".alert.alert-danger");
+            driver.FindElement(By.CssSelector(".btn.btn-danger")).Click();
             IWebElement dialog = driver.FindElement(By.CssSelector(".modal-dialog"));
             dialog.FindElement(By.CssSelector(".btn.btn-default")).Click();
             return this;
