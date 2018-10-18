@@ -93,12 +93,18 @@ namespace WebAuthorityTests
 
         public UserHelper RemoveLastUserInTheList()
         {
-            driver.FindElement(By.Id("1198_deleteLink")).Click();
+            driver.FindElement(By.Id("1169_deleteLink")).Click();
             WaitUntilElementIsFound(".btn.btn-danger");
             driver.FindElement(By.CssSelector(".btn.btn-danger")).Click();
-            WaitUntilElementIsFound(".alert.alert-danger");
+
+           // WaitUntilElementIsFound(".modal-dialog");
+
+            
+           // driver.FindElement(By.CssSelector(".modal-body"));
+
             IWebElement dialog = driver.FindElement(By.CssSelector(".modal-dialog"));
             dialog.FindElement(By.CssSelector(".btn.btn-default")).Click();
+
             return this;
         }
     }

@@ -16,7 +16,7 @@ namespace WebAuthorityTests
             app.User.ShowAllUsers();
             app.User.WaitUntilSpinnerVisible();
             app.User.RemoveLastUserInTheList();
-            app.User.WaitUntilElementIdFound("LogoutMainMenu");
+
             app.Auth.InitLogOut();
         }
     }
