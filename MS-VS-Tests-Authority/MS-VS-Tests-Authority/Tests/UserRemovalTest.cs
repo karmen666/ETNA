@@ -13,11 +13,10 @@ namespace WebAuthorityTests
         public void UserRemovalTest()
         {
             app.Navigator.GoToUserList();
-  
             app.User.ShowAllUsers();
             app.User.WaitUntilSpinnerVisible();
             app.User.RemoveLastUserInTheList();
-
+            app.User.WaitUntilElementIdFound("LogoutMainMenu");
             app.Auth.InitLogOut();
         }
     }

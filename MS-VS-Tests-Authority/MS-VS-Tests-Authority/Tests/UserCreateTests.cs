@@ -23,8 +23,7 @@ namespace WebAuthorityTests
             user.Email = "memych@mem.com";
 
             app.User.Create(user);
-            app.User.WaitUntilSpinnerVisible();
-            //WaitUntilElementIsFound("AdministratorMainMenu");
+           // app.User.WaitUntilElementIdFound("AndrewLuchkovMainMenu");
             app.Auth.InitLogOut();
         }
     }
