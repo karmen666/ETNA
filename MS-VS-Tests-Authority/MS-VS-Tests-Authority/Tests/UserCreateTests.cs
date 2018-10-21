@@ -3,7 +3,6 @@ using System.Text;
 using NUnit.Framework;
 
 
-
 namespace WebAuthorityTests
 {
     [TestFixture]
