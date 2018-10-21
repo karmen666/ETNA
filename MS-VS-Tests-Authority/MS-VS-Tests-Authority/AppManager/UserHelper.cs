@@ -93,17 +93,19 @@ namespace WebAuthorityTests
 
         public UserHelper RemoveLastUserInTheList()
         {
-            driver.FindElement(By.Id("1200_deleteLink")).Click();
+            driver.FindElement(By.Id("1210_deleteLink")).Click();
+            System.Threading.Thread.Sleep(1000);
             WaitUntilElementIsFound(".btn.btn-danger");
+            System.Threading.Thread.Sleep(1000);
             driver.FindElement(By.CssSelector(".btn.btn-danger")).Click();
-               
-                   
-            IWebElement dialog = driver.FindElement(By.XPath("(//input [@type='primary' and @class='.modal-dialog'])"));
+            System.Threading.Thread.Sleep(5000);
 
-            WaitUntilElementIsFound(dialog);
+            //IWebElement dialog = driver.FindElement(By.XPath("(//input [@type='primary' and @class='.modal-dialog'])"));
+            //WaitUntilElementIsFound(dialog);
            
-            // IWebElement dialog = driver.FindElement(By.CssSelector(".modal-dialog"));
+            IWebElement dialog = driver.FindElement(By.CssSelector(".modal-dialog"));
             dialog.FindElement(By.CssSelector(".btn.btn-default")).Click();
+            System.Threading.Thread.Sleep(1000);
 
             return this;
         }
